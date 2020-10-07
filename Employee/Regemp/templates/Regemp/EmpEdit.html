@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="jumbotron">
+    <h3 align="center">Edit the Mobile Details</h3>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+       <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+        {{edit.as_p}}
+
+           <input type="submit" value="Edit">
+           <a href="{%url 'index'%}" class="btn btn-primary">Home user</a>
+        </form>
+        </div>
+        <div class="col-3"></div>
+
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+ <h2 align="center" style="color:blue">EMployee Registraion</h2>
+ <div align="right"><a href="{%url 'Register'%}">SIGN UP </a>
+ <a href="{%url 'SignUp'%}">SIGN IN </a> </div>
+<div class="jumbotron">
+
+    <div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+         <div class="col-4">
+             <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="create"><p></p>
+        </form>
+         </div>
+        <div class="col-4"></div>
+
+    </div>
+    <table class="table table-dark">
+        <tr>
+            <td>Username</td>
+             <td>password</td>
+            <td>name</td>
+            <td>age</td>
+            <td>Image</td>
+        </tr>
+        {% for reg in reg %}
+        <tr>
+            <td>{{reg.user_name}}</td>
+            <td>{{reg.passwd}}</td>
+            <td>{{reg.name}}</td>
+            <td>{{reg.age}}</td>
+            <td width="10px" > <img class="card-img-top" src="{{reg.image.url}}" alt="Card image cap"></td>
+        </tr>
+{% endfor %}
+    </table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends "Regemp/base.html" %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-6"></div>
+    </div>
+
+    <div class="row">
+        {% for checks in check %}
+        <div class="col-lg-4">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{checks.image.url}}" class="card-img-top" alt="..." height="300px" width="200px">
+                <div class="card-body">
+                    username:{{checks.user_name}}<br>
+                    age:{{checks.age}}<br>
+                    password:{{checks.passwd}}<br>
+                    Name:{{checks.name}}<br>
+                    <a href="{% url 'EmpEdit' checks.id%}" class="btn btn-primary">Edit employee Details</a>
+                    <p></p>
+                   <a href="{% url 'DeletePro' checks.id%}" class="btn btn-primary">Delete profile</a>
+                </div>
+                <div class="col-6"></div>
+
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
